@@ -57,11 +57,14 @@ export const GlobalContext = createContext({
   setUsers: undefined,
   grades: [],
   setGrades: undefined,
+  currentWeekId: undefined,
+  setCurrentWeekId: undefined,
 });
 
 export function GlobalProvider({ children }) {
   const [users, setUsers] = useState(users_initial);
   const [grades, setGrades] = useState(grades_initial);
+  const [currentWeekId, setCurrentWeekId] = useState();
 
 
   return (
@@ -73,6 +76,8 @@ export function GlobalProvider({ children }) {
         setUsers,
         grades,
         setGrades,
+        currentWeekId,
+        setCurrentWeekId,
       }}
     >
       {children}
