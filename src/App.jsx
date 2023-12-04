@@ -1,5 +1,6 @@
 import { ChooseWeeks } from "./features/chooseWeeks";
 import { ChooseSubject } from "./features/chooseSubject";
+import { Table } from "./features/table";
 
 function App() {
 
@@ -9,6 +10,9 @@ function App() {
       <div className="p-3 px-9 flex items-center justify-between bg-[grey] w-full ">
         <ChooseWeeks />
         <ChooseSubject />
+      </div>
+      <div className="w-full flex justify-center items-center ">
+        <Table />
       </div>
     </div>
   );
