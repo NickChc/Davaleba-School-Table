@@ -12,7 +12,7 @@ export function ChooseWeeks() {
         const active = currentWeekId === week.id;
 
         return <Button key={week.id} active={active} click={() => {
-            if (currentWeekId !== week.id) {
+            if (!active) {
                 setCurrentWeekId(week.id);
             } else {
                 setCurrentWeekId(undefined);

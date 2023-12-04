@@ -59,12 +59,16 @@ export const GlobalContext = createContext({
   setGrades: undefined,
   currentWeekId: undefined,
   setCurrentWeekId: undefined,
+  currentSubjectId: undefined,
+  setCurrentSubjectId: undefined,
 });
 
 export function GlobalProvider({ children }) {
   const [users, setUsers] = useState(users_initial);
   const [grades, setGrades] = useState(grades_initial);
+
   const [currentWeekId, setCurrentWeekId] = useState();
+  const [currentSubjectId, setCurrentSubjectId] = useState();
 
 
   return (
@@ -78,6 +82,8 @@ export function GlobalProvider({ children }) {
         setGrades,
         currentWeekId,
         setCurrentWeekId,
+        currentSubjectId,
+        setCurrentSubjectId,
       }}
     >
       {children}
