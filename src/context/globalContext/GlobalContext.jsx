@@ -93,8 +93,8 @@ export function GlobalProvider({ children }) {
   const [users, setUsers] = useState(users_initial);
   const [grades, setGrades] = useState(grades_initial);
 
-  const [currentWeekId, setCurrentWeekId] = useState("week-id-2");
-  const [currentSubjectId, setCurrentSubjectId] = useState("subject-english");
+  const [currentWeekId, setCurrentWeekId] = useState();
+  const [currentSubjectId, setCurrentSubjectId] = useState();
 
   useEffect(() => {
     console.log(currentWeekId, currentSubjectId);
