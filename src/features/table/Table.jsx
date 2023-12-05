@@ -1,6 +1,3 @@
-import { useContext } from "react";
-
-import { GlobalContext } from "../../context/globalContext/GlobalContext";
 import { TableHeader } from "./tableHeader";
 import { TableBody } from "./tableBody";
 

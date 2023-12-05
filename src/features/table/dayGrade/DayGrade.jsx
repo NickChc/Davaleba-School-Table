@@ -67,7 +67,6 @@ export function DayGrade({ day, user }) {
           <input
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
-                console.log("eshveba");
                 addGrade();
                 setFocus(!focus);
               }

@@ -6,7 +6,8 @@ import { GlobalContext } from "../../../context/globalContext/GlobalContext";
 import { IoMdClose } from "react-icons/io";
 
 export function NewUserModal() {
-  const { modalVisible, setModalVisible, users, setUsers } = useContext(GlobalContext);
+  const { modalVisible, setModalVisible, users, setUsers } =
+    useContext(GlobalContext);
 
   const [focus, setFocus] = useState(true);
 
@@ -27,10 +28,7 @@ export function NewUserModal() {
         surname: newUserSurname,
       };
 
-
       users ? setUsers((prev) => [...prev, newUser]) : setUsers([newUser]);
-        
-        
 
       setModalVisible(false);
       setNewUserName("");

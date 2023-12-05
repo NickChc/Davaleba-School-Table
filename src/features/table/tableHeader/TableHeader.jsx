@@ -1,10 +1,6 @@
-import { useContext } from "react";
-
-import { GlobalContext } from "../../../context/globalContext/GlobalContext";
 import { TableEl } from "../../../components/tableEl";
 
 export function TableHeader() {
-    const { days_initial, users } = useContext(GlobalContext);
   return (
     <thead>
       <tr className="bg-[#1b1b1b] border-solid border border-black ">

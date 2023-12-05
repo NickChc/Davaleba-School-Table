@@ -6,8 +6,6 @@ import { TableRow } from "./tableRow";
 export function TableBody() {
   const { users } = useContext(GlobalContext);
 
-  
-
   return (
     <tbody>
       {users?.map((user, index) => {
