@@ -23,7 +23,7 @@ export function DayGrade({ day, user }) {
   const [newGrade, setNewGrade] = useState("");
 
   function addGrade() {
-    if (!isNaN(newGrade) && newGrade !== "") {
+    if (!isNaN(newGrade)) {
       const grade = {
         grade: newGrade,
         userId: user.id,
@@ -35,15 +35,13 @@ export function DayGrade({ day, user }) {
 
       setGrades((oldGrades) => {
         const filteredOldGrades = oldGrades.filter(
-          (grade) => theGrade?.dayId !== day.id);
+          (grade) => theGrade?.id !== grade.id);
 
         return [...filteredOldGrades, grade];
-      })
+      });
+
       setMode("view");
-      setFocus(!focus);
       setNewGrade("");
-    } else {
-      alert("dumbo");
     }
   }
 
@@ -66,6 +64,7 @@ export function DayGrade({ day, user }) {
             if (e.keyCode === 13) {
               console.log("eshveba");
               addGrade();
+              setFocus(!focus);
             }
           }}
             value={newGrade}
