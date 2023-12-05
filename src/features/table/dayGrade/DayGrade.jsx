@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "../../../context/globalContext/GlobalContext";
 
 export function DayGrade({ day, user }) {
-  const { currentSubjectId, currentWeekId, grades, setGrades } = useContext(GlobalContext);
+  const { currentSubjectId, currentWeekId, grades, setGrades } =
+    useContext(GlobalContext);
 
   const weekGrades = grades?.filter((grade) => grade.weekId === currentWeekId);
 
@@ -33,12 +34,15 @@ export function DayGrade({ day, user }) {
         id: uuidv4(),
       };
 
-      setGrades((oldGrades) => {
-        const filteredOldGrades = oldGrades.filter(
-          (grade) => theGrade?.id !== grade.id);
+      grades
+        ? setGrades((oldGrades) => {
+            const filteredOldGrades = oldGrades?.filter(
+              (grade) => theGrade?.id !== grade.id
+            );
 
-        return [...filteredOldGrades, grade];
-      });
+            return [...filteredOldGrades, grade];
+          })
+        : setGrades([grade]);
 
       setMode("view");
       setNewGrade("");
@@ -60,13 +64,14 @@ export function DayGrade({ day, user }) {
       )}
       {mode === "update" && (
         <div className="h-[40px] flex items-center justify-center ">
-          <input onKeyDown={(e) => {
-            if (e.keyCode === 13) {
-              console.log("eshveba");
-              addGrade();
-              setFocus(!focus);
-            }
-          }}
+          <input
+            onKeyDown={(e) => {
+              if (e.keyCode === 13) {
+                console.log("eshveba");
+                addGrade();
+                setFocus(!focus);
+              }
+            }}
             value={newGrade}
             autoFocus={focus}
             className="p-3 w-full text-white outline-none bg-transparent text-center placeholder:text-[#grey] "

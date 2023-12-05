@@ -12,47 +12,6 @@ const subjects_initial = [
   { id: "subject-biology", name: "Biolgy" },
 ];
 
-const users_initial = [
-  { id: "user-1", name: "David", surname: "Randelman" },
-  { id: "user-2", name: "Joe", surname: "Smith" },
-  { id: "user-3", name: "Mike", surname: "Myers" },
-  { id: "user-4", name: "Anna", surname: "Jones" },
-];
-
-const grades_initial = [
-  {
-    id: "grade-1",
-    dayId: "day-id-11",
-    userId: "user-2",
-    weekId: "week-id-3",
-    subjectId: "subject-math",
-    grade: 8,
-  },
-  {
-    id: "grade-2",
-    dayId: "day-id-7",
-    userId: "user-4",
-    weekId: "week-id-2",
-    subjectId: "subject-biology",
-    grade: 6,
-  },
-  {
-    id: "grade-3",
-    dayId: "day-id-2",
-    userId: "user-1",
-    weekId: "week-id-1",
-    subjectId: "subject-english",
-    grade: 9,
-  },
-  {
-    id: "grade-4",
-    dayId: "day-id-3",
-    userId: "user-2",
-    weekId: "week-id-1",
-    subjectId: "subject-math",
-    grade: 10,
-  },
-];
 
 const days_initial = [
   // first week
@@ -87,18 +46,18 @@ export const GlobalContext = createContext({
   setCurrentWeekId: undefined,
   currentSubjectId: undefined,
   setCurrentSubjectId: undefined,
+  modalVisible: undefined,
+  setModalVisible: undefined,
 });
 
 export function GlobalProvider({ children }) {
-  const [users, setUsers] = useState(users_initial);
-  const [grades, setGrades] = useState(grades_initial);
+  const [users, setUsers] = useState();
+  const [grades, setGrades] = useState();
 
   const [currentWeekId, setCurrentWeekId] = useState();
   const [currentSubjectId, setCurrentSubjectId] = useState();
 
-  useEffect(() => {
-    console.log(currentWeekId, currentSubjectId);
-  }, [currentWeekId, currentSubjectId]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <GlobalContext.Provider
@@ -114,9 +73,55 @@ export function GlobalProvider({ children }) {
         setCurrentWeekId,
         currentSubjectId,
         setCurrentSubjectId,
+        modalVisible,
+        setModalVisible,
       }}
     >
       {children}
     </GlobalContext.Provider>
   );
 }
+
+
+
+// const users_initial = [
+//   { id: "user-1", name: "David", surname: "Randelman" },
+//   { id: "user-2", name: "Joe", surname: "Smith" },
+//   { id: "user-3", name: "Mike", surname: "Myers" },
+//   { id: "user-4", name: "Anna", surname: "Jones" },
+// ];
+
+// const grades_initial = [
+//   {
+//     id: "grade-1",
+//     dayId: "day-id-11",
+//     userId: "user-2",
+//     weekId: "week-id-3",
+//     subjectId: "subject-math",
+//     grade: 8,
+//   },
+//   {
+//     id: "grade-2",
+//     dayId: "day-id-7",
+//     userId: "user-4",
+//     weekId: "week-id-2",
+//     subjectId: "subject-biology",
+//     grade: 6,
+//   },
+//   {
+//     id: "grade-3",
+//     dayId: "day-id-2",
+//     userId: "user-1",
+//     weekId: "week-id-1",
+//     subjectId: "subject-english",
+//     grade: 9,
+//   },
+//   {
+//     id: "grade-4",
+//     dayId: "day-id-3",
+//     userId: "user-2",
+//     weekId: "week-id-1",
+//     subjectId: "subject-math",
+//     grade: 10,
+//   },
+// ];

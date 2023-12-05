@@ -21,7 +21,6 @@ export function ChooseSubject() {
               } else {
                 setCurrentSubjectId(undefined);
               }
-              console.log(currentSubjectId);
             }}
             text={subject.name}
           />
