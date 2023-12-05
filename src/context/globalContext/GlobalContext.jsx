@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const weeks_initial = [
   { id: "week-id-1", name: "First Week" },
@@ -13,16 +13,16 @@ const subjects_initial = [
 ];
 
 const users_initial = [
-  { id: "user-1", name: "David" },
-  { id: "user-2", name: "Joe" },
-  { id: "user-3", name: "Mike" },
-  { id: "user-4", name: "Anna" },
+  { id: "user-1", name: "David", surname: "Randelman" },
+  { id: "user-2", name: "Joe", surname: "Smith" },
+  { id: "user-3", name: "Mike", surname: "Myers" },
+  { id: "user-4", name: "Anna", surname: "Jones" },
 ];
 
 const grades_initial = [
   {
     id: "grade-1",
-    dayId: "day-id-1",
+    dayId: "day-id-11",
     userId: "user-2",
     weekId: "week-id-3",
     subjectId: "subject-math",
@@ -30,9 +30,9 @@ const grades_initial = [
   },
   {
     id: "grade-2",
-    dayId: "day-id-3",
+    dayId: "day-id-7",
     userId: "user-4",
-    weekId: "week-id-4",
+    weekId: "week-id-2",
     subjectId: "subject-biology",
     grade: 6,
   },
@@ -54,14 +54,13 @@ const grades_initial = [
   },
 ];
 
-
 const days_initial = [
   // first week
   { id: "day-id-1", weekId: "week-id-1", name: "Monday" },
-  { id: "day-id-1", weekId: "week-id-1", name: "Tuesday" },
-  { id: "day-id-1", weekId: "week-id-1", name: "Wednesday" },
-  { id: "day-id-1", weekId: "week-id-1", name: "Thursday" },
-  { id: "day-id-1", weekId: "week-id-1", name: "Friday" },
+  { id: "day-id-2", weekId: "week-id-1", name: "Tuesday" },
+  { id: "day-id-3", weekId: "week-id-1", name: "Wednesday" },
+  { id: "day-id-4", weekId: "week-id-1", name: "Thursday" },
+  { id: "day-id-5", weekId: "week-id-1", name: "Friday" },
   // second week
   { id: "day-id-6", weekId: "week-id-2", name: "Monday" },
   { id: "day-id-7", weekId: "week-id-2", name: "Tuesday" },
@@ -94,9 +93,12 @@ export function GlobalProvider({ children }) {
   const [users, setUsers] = useState(users_initial);
   const [grades, setGrades] = useState(grades_initial);
 
-  const [currentWeekId, setCurrentWeekId] = useState();
-  const [currentSubjectId, setCurrentSubjectId] = useState();
+  const [currentWeekId, setCurrentWeekId] = useState("week-id-2");
+  const [currentSubjectId, setCurrentSubjectId] = useState("subject-english");
 
+  useEffect(() => {
+    console.log(currentWeekId, currentSubjectId);
+  }, [currentWeekId, currentSubjectId]);
 
   return (
     <GlobalContext.Provider

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { GlobalContext } from "../../context/globalContext/GlobalContext";
 import { Button } from "../../components/button";
@@ -18,7 +18,6 @@ export function ChooseWeeks() {
                 setCurrentWeekId(undefined);
             }
         }} text={week.name} />;
-        console.log(week.name);
       })}
     </div>
   );
